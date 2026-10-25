@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>给特别的你</title>
+
+<style>
+body {
+  background-color: pink;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 30px 15px;
+}
+
+h1 {
+  color: red;
+}
+
+button {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  margin: 10px;
+}
+
+#loveLetter {
+  display: none;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  color: #d63384;
+  line-height: 1.8;
+}
+
+.heart {
+  position: fixed;
+  bottom: 0;
+  animation: floatUp 2s ease-out forwards;
+  font-size: 28px;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+<h1>给特别的你 💗</h1>
+<p>今天也要开心哦！</p>
+
+<button onclick="openLetter()">打开隐藏情书 💌</button>
+
+<div id="loveLetter">
+  <h2>亲爱的你 💕</h2>
+  遇见你，是今天最开心的事！<br>
+  愿你每天都有小惊喜，<br>
+  开心的时候有人分享，<br>
+  累的时候也有人关心。<br>
+  <strong>记得每天都要开心呀！❤️</strong>
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById("loveLetter").style.display = "block";
+
+  for (let i = 0; i < 8; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = "💗";
+    heart.style.left = (10 + Math.random() * 80) + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(function() {
+      heart.remove();
+    }, 2000);
+  }
+}
+</script>
+
+</body>
+</html>
